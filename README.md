@@ -3,6 +3,7 @@
 >> - not necessarily. Were you thinking of splitting it off into a separate file?
 > - We have to discuss the final structure of the repo. I suggest to create a repository (e.g., OpenMRStandard) containing multiple sumbodules representing the different standards, like this one here. This would make the pair with the OpenConnector project...
 >> - so this would be the "offline" data transmission submodule of the larger coil standard?
+> - the name of the standard is also open to changes (MRCODS?)
 
 # MRI RF Coil Open Data Standard (MRCODatS)
 
@@ -45,7 +46,7 @@ falling/rising-edge on the pin raises an interrupt signalling the RF coil connec
 
 Voltage levels must be safe and compatible with common standards. In addition it must be compatible with the voltage level used by common microcontrollers, low-power supplies and USB ports. 
 
-The standard accepts voltage levels equal to 3.3 V and 5 V. While is compatible with the supply voltages of most microcontrollers and non-negotiated USB, their level is high enough to limit cross talk due to capacitive coupling compared to lower voltage levels[<sup>1</sup>](https://www.I2C-bus.org/voltage-level/)
+The standard accepts voltage levels equal to 3.3 V and 5 V. While is compatible with the supply voltages of most microcontrollers and non-negotiated USB, their level is high enough to limit cross talk due to capacitive coupling compared to lower voltage levels[<sup>1</sup>](https://www.I2C-bus.org/voltage-level/).
 
 
 ### Communication Layer
@@ -62,7 +63,7 @@ document ::= int32 e_list \0x00
 ```
 where `int32` is the total number of bytes comprising the document and `e_list` is the actual content of the document whose format must comply with the BSON standard data format.
 
-Data is stored beginning at address 0x0000 of the EEPROM and integrity checking is performed by appending a 4-byte CRC32 checksum at the end of the BSON document. The following figure clarifies how the data are stored in the EEPROM
+Data is stored beginning at address 0x0000 of the EEPROM and integrity checking is performed by appending a 4-byte CRC32 checksum at the end of the BSON document. The following figure clarifies how the data are stored in the EEPROM.
 
 <img src="/figures/EEPROM_data.svg" width=600>
 
