@@ -9,6 +9,7 @@ The read process, including verification of data integrity, is described in the 
 ## Python
 
 The Python code assumes that a CH341T programmer/reader is connected using USB.
+![programmer connected to EEPROM]/(figures/CH341T_EEPROM.jpg)
 
 ### Requirements
 
