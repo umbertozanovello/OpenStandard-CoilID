@@ -1,6 +1,8 @@
 > Open points:
-> - Do we want to leave all the standard in the README.md file? 
+> - Do we want to leave all the standard in the README.md file?
+>> - not necessarily. Were you thinking of splitting it off into a separate file?
 > - We have to discuss the final structure of the repo. I suggest to create a repository (e.g., OpenMRStandard) containing multiple sumbodules representing the different standards, like this one here. This would make the pair with the OpenConnector project...
+>> - so this would be the "offline" data transmission submodule of the larger coil standard?
 
 # MRI RF Coil Open Data Standard (MRCODatS)
 
@@ -9,6 +11,7 @@ The scanner must therefore be able to identify the type of coil that is connecte
 In the past this function was implemented using incompatible, vendor-specific proprietary protocols that typically identify the coil with a unique code which is then associated with a specific data file on the scanner.
 In addition to being a closed, proprietary approach, it is also prone to accidental mismatching, spoofing (intentionally presenting a code belonging to another coil), missing data files, or other errors.
 An open standard data format and transmission protocol are needed to allow the scanner to identify an RF coil's information consistently across different platforms.
+The standard also introduces the ability to identify and track an individual coil, e.g., for quality assurance purposes, logging errors, etc. This feature is impossible with the basic coil ID/file method.
 
 ## Interconnection Model
 
@@ -53,7 +56,7 @@ Communication protocol and bus are closely related and one has to fit into the o
 
 The data format must be flexible to represent different data types and must be stand-alone, i.e., it must not require external schemas for decoding the data. In addition, data must take minimal space on the storage device and the format must be supported by in-force standards and available software libraries. Finally, the standard requires an integrity check to improve the robusteness of data against communication errors.
 
-The standard relies on the [BSON](https://bsonspec.org/) (Binary JSON) data format for storing the data in the EEPROM. BSON is a bin­ary-en­coded seri­al­iz­a­tion of JSON-like doc­u­ments and is somewhat more compact than JSON. A BSON document is composed in the following way
+The standard relies on the [BSON](https://bsonspec.org/) (Binary JSON) data format for storing the data in the EEPROM. BSON is a bin­ary-en­coded seri­al­iz­a­tion of JSON-like doc­u­ments and is somewhat more compact than JSON (it is also more structured than JSON, e.g., for time and date information). A BSON document is composed in the following way
 ```
 document ::= int32 e_list \0x00
 ```
@@ -104,7 +107,9 @@ Data are stored in [BSON](https://bsonspec.org/) as key/value pairs. The followi
 **Notes**
 - Wherever possible we have used names compatible with those used in [DICOM](https://www.dicomstandard.org) tags to facilitate including coil data in DICOM headers of the resulting images.
 - quantities that require units shall use SI units without multiplier (prefix).
-- BSON dates are encoded as `uint64` but programmatically they should be created from a date or datetime object (see [Software](/software/software.md)).
+- BSON dates are encoded as `uint64` but programmatically they should be created from a date or datetime object according to what is available in the software language and environment used (see [Software](/software/software.md)).
+
+## Licenses
 
 ## How to Contribute
 
