@@ -70,11 +70,41 @@ Data are stored in [BSON](https://bsonspec.org/) as key/value pairs. The followi
 |Field Name|BSON Key|Type|Comment|
 |---|---|---|---|
 |Coil ID|cID|int32|unique identifier|
+| Manufacturer | mfg | cstring |  |
+| Manufacturer part \# | PN | cstring |  |
+| Revision | rev | cstring |  |
+| Device Serial \# | SN | cstring |  |
+| Coil name | name | cstring |  |
+| Coil type | type | cstring | TX, RX, T/R |
+| Number of TX Channels  | nTX | int32 |  |
+| Number of RX Channels  | nRX | int32 |  |
+| Creation Date | mfgDate | uint64 |  |
+| Calibration Date | calDate | uint64 |  |
+| Magnetic Field Strength | b0 | double |  |
+| Resonant Nucleus | nucleus | cstring | Isotope in standard AZE notation (with Z omitted), e.g., 1H, 31P, etc. |
+| Nominal Frequency | f0 | double |  |
+| Nominal bandwidth | bw | double |  |
+| RF coil sensitivity | sens | double |  |
+| Nominal loading factor | qDamping | double | QU/QL, sometimes determined at run time |
+| Maximum Incident Power | maxP | double | for TX coils |
+| Maximum B1 | maxB1 | double | for RX coils |
+| Tunable | tuneMatch | bool | True if capable of remote automatic tune/match |
+| Malfunction detection | faultCheck | bool | True if capable of triggering malfunction signal in real time during scan |
+| RX delay | rxDelay | double | Minimum tune/detune delay to allow coil state to stabilize |
+| TX delay | txDelay | double | Minimum tune/detune delay to allow coil state to stabilize |
+| Nominal FOV in x | xFov | double | ↓ |
+| Nominal FOV in y | yFov | double | To check if scan FOV is compatible with the coil’s FOV |
+| Nominal FOV in z | zFov | double | ↑ |
+| Local SAR | localSar | double |  |
+| Body SAR | bodySar | double |  |
+| Temperature sensors | tempSens | int32 | Number of temperature sensors (addressable via I2C) |
+| diagnostics | diag | bool | True if diagnostic information is available via I2C |
 
 
 **Notes**
-- Wherever possible we have used names compatible with those used in [DICOM](https://www.dicomstandard.org) tags.
-- quantities that require units shall use SI units without multiplier (prefix)
+- Wherever possible we have used names compatible with those used in [DICOM](https://www.dicomstandard.org) tags to facilitate including coil data in DICOM headers of the resulting images.
+- quantities that require units shall use SI units without multiplier (prefix).
+- BSON dates are encoded as `uint64` but programmatically they should be created from a date or datetime object.
 
 ## How to Contribute
 
