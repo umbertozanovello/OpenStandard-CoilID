@@ -104,7 +104,7 @@ Data are stored in [BSON](https://bsonspec.org/) as key/value pairs. The followi
 **Notes**
 - Wherever possible we have used names compatible with those used in [DICOM](https://www.dicomstandard.org) tags to facilitate including coil data in DICOM headers of the resulting images.
 - quantities that require units shall use SI units without multiplier (prefix).
-- BSON dates are encoded as `uint64` but programmatically they should be created from a date or datetime object.
+- BSON dates are encoded as `uint64` but programmatically they should be created from a date or datetime object (see [Software](/software/software.md)).
 
 ## How to Contribute
 
