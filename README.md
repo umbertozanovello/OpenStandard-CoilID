@@ -59,10 +59,22 @@ document ::= int32 e_list \0x00
 ```
 where `int32` is the total number of bytes comprising the document and `e_list` is the actual content of the document whose format must comply with the BSON standard data format.
 
-Data integrity is performed by appending at the end of the BSON document a 4-byte CRC32 checksum. The following figure clarifies how the data are stored in the EEPROM
+Data is stored beginning at address 0x0000 of the EEPROM and integrity checking is performed by appending a 4-byte CRC32 checksum at the end of the BSON document. The following figure clarifies how the data are stored in the EEPROM
 
 <img src="/figures/EEPROM_data.svg" width=600>
 
+#### Data Fields
+
+Data are stored in [BSON](https://bsonspec.org/) as key/value pairs. The following table defines a range of possible key names that are relevant to MR coils. *At minimum*, the BSON data shall include the *cID* tag, but the spirit of this standard is to include as many relevant keys as possible to eliminate the need for a coil file on the scanner.
+
+|Field Name|BSON Key|Type|Comment|
+|---|---|---|---|
+|Coil ID|cID|int32|unique identifier|
+
+
+**Notes**
+- Wherever possible we have used names compatible with those used in [DICOM](https://www.dicomstandard.org) tags.
+- quantities that require units shall use SI units without multiplier (prefix)
 
 ## How to Contribute
 
