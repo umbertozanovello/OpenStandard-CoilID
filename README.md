@@ -1,3 +1,6 @@
+> Open points:
+> - Do we want to leave all the standard in the README.md file? 
+> - We have to discuss the final structure of the repo. I suggest to create a repository (e.g., OpenMRStandard) containing multiple sumbodules representing the different standards, like this one here. This would make the pair with the OpenConnector project...  
 # MRI RF Coil Open Data Standard (MRCODatS)
 
 Magnetic resonance imaging (MRI) scanners are designed to accommodate different radio frequency (RF) coils depending on the region of the body being imaged and other scan requirements.
