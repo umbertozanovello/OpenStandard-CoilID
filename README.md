@@ -24,11 +24,11 @@ This open standard follows the spirit of the Open Systems Interconnection ([OSI]
 #### Storage Device
 The storage device storing the RF Coil data must be affordable, non-volatile, easy to buy and interface. 
 
-Standard EEPROMs comply with these requirements. They are available for ~1$ in different sizes, packages and support various operating voltages. 
+Standard EEPROMs comply with these requirements. They are available for ~1$ in different sizes, packages and support various operating voltages. A means of write-protecting the EEPROM shall be implemented to prevent accidental overwriting of the coil data.
 
 #### Communication Bus
 
-Considering the reduced space available on the coil-side, the communication bus must not add excessive complexity to the circuitry (e.g., many connector pins; many components occupying substantial PCB real estate).
+Considering the limited space available on the coil-side, the communication bus must not add excessive complexity to the circuitry (e.g., many connector pins; many components occupying substantial PCB real estate).
 
 The standard makes use of the I<sup>2</sup>C protocol to trasfer the data (see [Communication Layer](#Communication-Layer)). I<sup>2</sup>C requires only two lines (SDA, SCL) in addition to the DC supply and ground. The standards recommends to add 10 kOhm pull-up resistors both on the SDA and SDL lines and both on the coil- and system-side. This reference value helps to contain the bus time constant and guarantees a reliable low logic voltage level for the open-drain transistors. In extreme cases where resistors are not enough to guarantee reliable communication, circuits like buffers, extenders and accelerators can be added to the bus.
 
