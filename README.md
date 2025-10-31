@@ -125,9 +125,9 @@ Data are stored in [BSON](https://bsonspec.org/) as key/value pairs. The followi
 
 The read process, including verification of data integrity, is described in the flowchart above. When the RF coil is connected, the scanner scans the I<sup>2</sup>C bus at the default address (0x50) looking for the EEPROM. If detected, the first 4 bytes are decoded to assess the document length. The remaining bytes are read and checked against the checksum. If the check is passed, the binary data are decoded in a human readable format and made available to the scan control software.
 
-## Available Drivers
+## Available Implementations
 
-The standard provides different drivers to read/write from/to an I<sup>2</sup>C EEPROM. 
+The standard provides implementations to read/write from/to an I<sup>2</sup>C EEPROM in different languages and with different masters. Scripts and documention are contained in the relevant folders.
 
 ## Licenses
 
