@@ -11,7 +11,7 @@
 > the name of the standard is also open to changes (MRCODS?)
 >> I still haven't thought about it. MRCODS seems a good name. Short and easy to remember
 
-> Regarding the organization of this standard, my proposal is to move the read flowchart in the body of the standard (it's common to all the programming languages and it's really a part of the standard). The Python, STM32 code, etc. are like assets to the standard and I'd keep them in separate folders named after the language used, e.g., python_driver, stm32_driver, ... Each of this folders will have a README like the one you already wrote for the python code
+> Regarding the organization of this standard, my proposal is to move the read flowchart in the body of the standard (it's common to all the programming languages and it's really a part of the standard). The Python, STM32 code, etc. are like assets to the standard and I'd keep them in separate folders named after the language used, e.g., python_script, stm32_script, ... Each of this folders will have a README like the one you already wrote for the python code
 
 # MRI RF Coil Open Data Standard (MRCODatS)
 
