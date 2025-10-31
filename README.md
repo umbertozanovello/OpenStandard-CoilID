@@ -2,7 +2,7 @@
 
 > Do we want to leave all the standard in the README.md file?
 >> not necessarily. Were you thinking of splitting it off into a separate file?
->>> I'm thinking of a README were we explain the purpose and reach of the standard. In a separate md file we have the actual standard
+>>> I'm thinking of a README were we explain the purpose and reach of the standard. In a separate md file we have the actual standard. But maybe it's not necessary
 
 > We have to discuss the final structure of the repo. I suggest to create a repository (e.g., OpenMRStandard) containing multiple sumbodules representing the different standards, like this one here. This would make the pair with the OpenConnector project...
 >> so this would be the "offline" data transmission submodule of the larger coil standard?
@@ -36,7 +36,7 @@ This open standard follows the spirit of the Open Systems Interconnection ([OSI]
 #### Storage Device
 The storage device storing the RF Coil data must be affordable, non-volatile, easy to buy and interface. 
 
-Standard EEPROMs comply with these requirements. They are available for ~1$ in different sizes, packages and support various operating voltages. A means of write-protecting the EEPROM shall be implemented to prevent accidental overwriting of the coil data.
+Standard EEPROMs comply with these requirements. They are available for ~1$ in different sizes, packages and support various operating voltages. A means of write-protecting the EEPROM shall be implemented to prevent accidental overwriting of the coil data. Depending on the EEPROM package, the memory may come along with a number of pins that are used to set the I<sup>2</sup>C address of the memory on the bus. This stadard requires the pin to be set to logical zero which defaults to a I<sup>2</sup>C bus address of 0x50
 
 #### Communication Bus
 
@@ -117,6 +117,17 @@ Data are stored in [BSON](https://bsonspec.org/) as key/value pairs. The followi
 - Wherever possible we have used names compatible with those used in [DICOM](https://www.dicomstandard.org) tags to facilitate including coil data in DICOM headers of the resulting images.
 - quantities that require units shall use SI units without multiplier (prefix).
 - BSON dates are encoded as `uint64` but programmatically they should be created from a date or datetime object according to what is available in the software language and environment used (see [Software](/software/software.md)).
+
+
+## Read Workflow
+
+![read flowchart](/figures/EEPROM\_read\_flowchart.svg)
+
+The read process, including verification of data integrity, is described in the flowchart above. When the RF coil is connected, the scanner scans the I<sup>2</sup>C bus at the default address (0x50) looking for the EEPROM. If detected, the first 4 bytes are decoded to assess the document length. The remaining bytes are read and checked against the checksum. If the check is passed, the binary data are decoded in a human readable format and made available to the scan control software.
+
+## Available Drivers
+
+The standard provides different drivers to read/write from/to an I<sup>2</sup>C EEPROM. 
 
 ## Licenses
 

@@ -1,12 +1,5 @@
-# Software Code
-
-These are some experimental software implementations of the standard to read and write coil data to and from the EEPROM.
-
-The read process, including verification of data integrity, is described in the flowchart below. When the RF coil is connected, the scanner scans the I<sup>2</sup>C bus at the default address (0x50) looking for the EEPROM. If detected, the stored data are read and checked against the checksum.
-
-![read flowchart](/figures/EEPROM\_read\_flowchart.svg)
-
-## Python
+# Python EEPROM Coil Data Management
+>A better title?
 
 The Python code assumes that a CH341T programmer/reader is connected using USB.
 ![programmer connected to EEPROM](/figures/CH341T_EEPROM.jpg)
