@@ -1,7 +1,4 @@
 # Python EEPROM Coil Data Management
->A better title?
->
->  no it's good
 
 The Python code assumes that a CH341T programmer/reader is connected using USB. In this example we used an AT24C256 EEPROM which holds 256kib (262144 bits) or 32kiB.
 Note the 10k resistors on the EEPROM PCB. The programmer chip has internal resistors.
