@@ -28,12 +28,10 @@ The standard makes use of the I<sup>2</sup>C protocol to trasfer the data (see [
 
 ### Connection Detection
 When the RF connector is mated to the scanner, the scanner must be able to recognise the connection. This connection sensor must be simple to implement without excessively complicating the connector circuitry.
-
-> revert the overline below. It was written correctly, just not rendered properly (with an overline over the full name)
-
-The proposed solution is to assert the status of a pulled-up pin on the system-side ($\overline{\rm coil_{connected}}$). When connected, this pin is forced to ground and a falling/rising-edge on the pin raises an interrupt signalling the RF coil connection/disconnection. This pin should be the last to mate, first to break (i.e., shorter than the other pins in the connector).
+The proposed solution is to assert the status of a pulled-up pin on the system-side ($\overline{\rm coil\_{connected}}$). When connected, this pin is forced to ground and a falling/rising-edge on the pin raises an interrupt signalling the RF coil connection/disconnection. This pin should be the last to mate, first to break (i.e., shorter than the other pins in the connector).
 > Don't you think it's safer using a delay before starting reading data? The datasheet of the PCIe connector just reported two different lengths. The longers are used for Vcc and GND and the others for the other signals. I'm not sure if we make an even shorter connector, a good connection is still guaranteed.
 >> the shorter pin is not for introducing a temporal delay; only to ensure the connector is fully seated before the system is notified (adding a short delay is a good idea anyway). We can probably adjust the lengths of the traces as needed in KiCAD, as long as they are not shorter than what is acceptable for the connector. But this is a mechanical spec of the standard that depends on the chosen connector, currently out of our scope.
+>>> ok!
 
 ### Operating Voltages
 
