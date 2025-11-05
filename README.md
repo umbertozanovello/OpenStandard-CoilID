@@ -16,8 +16,9 @@ The standard also introduces the ability to identify and track an individual coi
 The repositories provides implementations of the standard to read/write from/to an I<sup>2</sup>C EEPROM in different languages and with different masters. Scripts and documention are contained in the relevant folders.
 
 ## License
-
-The standard is licensed under the CC-BY-ND license. All available implementations are licensed under the Apache License Version 2.0. For further information, please refer to the relevant LICENSE file.
+![CClicense](https://i.creativecommons.org/l/by-nd/4.0/88x31.png)\
+The standard is licensed under a [Creative Commons Attribution-NoDerivatives 4.0 International License](https://creativecommons.org/licenses/by-nd/4.0/) (CC-BY-ND).\
+All available implementations are licensed under the Apache License Version 2.0. For further information, please refer to the relevant LICENSE file.
 
 ## Contributors (alphabetical order)
 Nicola De Zanche, Umberto Zanovello
