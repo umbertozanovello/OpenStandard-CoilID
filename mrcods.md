@@ -98,3 +98,7 @@ Data are stored in [BSON](https://bsonspec.org/) as key/value pairs. The followi
 ![read flowchart](/figures/EEPROM\_read\_flowchart.svg)
 
 The read process, including verification of data integrity, is described in the flowchart above. When the RF coil is connected, the scanner scans the I<sup>2</sup>C bus at the default address (0x50) looking for the EEPROM. If detected, the first 4 bytes are decoded to assess the document length. The remaining bytes are read and checked against the checksum. If the check is passed, the binary data are decoded in a human readable format and made available to the scan control software.
+
+# License
+![CClicense](https://i.creativecommons.org/l/by-nd/4.0/88x31.png)\
+The MRCODS standard is licensed under a [Creative Commons Attribution-NoDerivatives 4.0 International License](https://creativecommons.org/licenses/by-nd/4.0/).
