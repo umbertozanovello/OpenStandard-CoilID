@@ -1,14 +1,8 @@
-# Software Code
+# Python EEPROM Coil Data Management
 
-These are some experimental software implementations of the standard to read and write coil data to and from the EEPROM.
+The Python code assumes that a CH341T programmer/reader is connected using USB. In this example we used an AT24C256 EEPROM which holds 256kib (262144 bits) or 32kiB.
+Note the 10k resistors on the EEPROM PCB. The programmer chip has internal resistors.
 
-The read process, including verification of data integrity, is described in the flowchart below. When the RF coil is connected, the scanner scans the I<sup>2</sup>C bus at the default address (0x50) looking for the EEPROM. If detected, the stored data are read and checked against the checksum.
-
-![read flowchart](/figures/EEPROM\_read\_flowchart.svg)
-
-## Python
-
-The Python code assumes that a CH341T programmer/reader is connected using USB.
 ![programmer connected to EEPROM](/figures/CH341T_EEPROM.jpg)
 
 ### Requirements
