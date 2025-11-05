@@ -1,5 +1,9 @@
 # MRI RF Coil Open Data Standard (MRCODS)
 
+<img src="/figures/IRM_siemens_avec_antennes.png" width=400>
+
+---
+
 Magnetic resonance imaging (MRI) scanners are designed to accommodate different radio frequency (RF) coils depending on the region of the body being imaged and other scan requirements.
 The scanner must therefore be able to identify the type of coil that is connected, its capabilities and operating parameters.
 In the past this function was implemented using incompatible, vendor-specific proprietary protocols that typically identify the coil with a unique code which is then associated with a specific data file on the scanner.
@@ -13,11 +17,10 @@ The repositories provides implementations of the standard to read/write from/to 
 
 ## License
 
-This standrad is licensed under the Apache License Version 2.0. For more information please check the [LICENSE](LICENSE).
+The standard is licensed under the CC-BY-ND license. All available implementations are licensed under the Apache License Version 2.0. For further information, please refer to the relevant LICENSE file.
 
 ## Contributors (alphabetical order)
 Nicola De Zanche, Umberto Zanovello
-> Do we want to add others here?
 
 ## How to Contribute
 

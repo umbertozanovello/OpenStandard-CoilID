@@ -1,9 +1,3 @@
-> Open points:
-
-> We have to discuss the final structure of the repo. I suggest to create a repository (e.g., OpenMRStandard) containing multiple sumbodules representing the different standards, like this one here. This would make the pair with the OpenConnector project...
->> so this would be the "offline" data transmission submodule of the larger coil standard?
->>> Exactly! Then there will be another for the PIN diode drivers, auto tuner, ... Basically one for each module you identified some months ago ✓
-
 # Interconnection Model
 
 This open standard follows the spirit of the Open Systems Interconnection ([OSI](https://en.wikipedia.org/wiki/OSI_model)) model and is divided into layers as follows:
@@ -29,9 +23,6 @@ The standard makes use of the I<sup>2</sup>C protocol to trasfer the data (see [
 ### Connection Detection
 When the RF connector is mated to the scanner, the scanner must be able to recognise the connection. This connection sensor must be simple to implement without excessively complicating the connector circuitry.
 The proposed solution is to assert the status of a pulled-up pin on the system-side ($\overline{\rm coil\_{connected}}$). When connected, this pin is forced to ground and a falling/rising-edge on the pin raises an interrupt signalling the RF coil connection/disconnection. This pin should be the last to mate, first to break (i.e., shorter than the other pins in the connector).
-> Don't you think it's safer using a delay before starting reading data? The datasheet of the PCIe connector just reported two different lengths. The longers are used for Vcc and GND and the others for the other signals. I'm not sure if we make an even shorter connector, a good connection is still guaranteed.
->> the shorter pin is not for introducing a temporal delay; only to ensure the connector is fully seated before the system is notified (adding a short delay is a good idea anyway). We can probably adjust the lengths of the traces as needed in KiCAD, as long as they are not shorter than what is acceptable for the connector. But this is a mechanical spec of the standard that depends on the chosen connector, currently out of our scope.
->>> ok!
 
 ### Operating Voltages
 
@@ -99,7 +90,7 @@ Data are stored in [BSON](https://bsonspec.org/) as key/value pairs. The followi
 **Notes**
 - Wherever possible we have used names compatible with those used in [DICOM](https://www.dicomstandard.org) tags to facilitate including coil data in DICOM headers of the resulting images.
 - quantities that require units shall use SI units without multiplier (prefix).
-- BSON dates are encoded as `uint64` but programmatically they should be created from a date or datetime object according to what is available in the software language and environment used (see [Software](/software/software.md)).
+- BSON dates are encoded as `uint64` but programmatically they should be created from a date or datetime object according to what is available in the software language and environment used (see [Available Implementations](README.md#available-implementations)).
 
 
 # Read Workflow
