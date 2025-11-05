@@ -8,8 +8,10 @@ Magnetic resonance imaging (MRI) scanners are designed to accommodate different 
 The scanner must therefore be able to identify the type of coil that is connected, its capabilities and operating parameters.
 In the past this function was implemented using incompatible, vendor-specific proprietary protocols that typically identify the coil with a unique code which is then associated with a specific data file on the scanner.
 In addition to being a closed, proprietary approach, it is also prone to accidental mismatching, spoofing (intentionally presenting a code belonging to another coil), missing data files, or other errors.
-This repository introduces an [open standard](mrcods.md) data format and transmission protocol to allow the scanner to identify an RF coil's information consistently across different platforms.
-The standard also introduces the ability to identify and track an individual coil, e.g., for quality assurance purposes, logging errors, etc. This feature is impossible with the basic coil ID/file method (multiple coils of the same model cannot be distinguished by the system).
+This repository introduces an [open standard](https://en.wikipedia.org/wiki/Open_standard) consisting of a data format and transmission protocol to allow the scanner to identify an RF coil's information consistently across different platforms.
+[The standard](mrcods.md) also introduces the ability to identify and track an individual coil, e.g., for quality assurance purposes, logging errors, etc. This feature is impossible with the basic coil ID/file method (multiple coils of the same model cannot be distinguished by the system).
+
+## [Read the Standard](mrcods.md)
 
 ## Available Implementations
 
@@ -17,7 +19,7 @@ The repositories provides implementations of the standard to read/write from/to 
 
 ## License
 ![CClicense](https://i.creativecommons.org/l/by-nd/4.0/88x31.png)\
-The standard is licensed under a [Creative Commons Attribution-NoDerivatives 4.0 International License](https://creativecommons.org/licenses/by-nd/4.0/) (CC-BY-ND).\
+[The standard](mrcods.md) is licensed under a [Creative Commons Attribution-NoDerivatives 4.0 International License](https://creativecommons.org/licenses/by-nd/4.0/) (CC-BY-ND).\
 All available implementations are licensed under the Apache License Version 2.0. For further information, please refer to the relevant LICENSE file.
 
 ## Contributors (alphabetical order)
