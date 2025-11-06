@@ -1,7 +1,5 @@
 # MRCODS - MRI RF Coil Open Data Standard
 
----
-
 ## Interconnection Model
 
 This open standard follows the spirit of the Open Systems Interconnection ([OSI](https://en.wikipedia.org/wiki/OSI_model)) model and is divided into layers as follows:
