@@ -1,0 +1,18 @@
+{
+    "cID": "123456",
+    "mfg": "Awesome Coil Enterprises (ACE)",
+    "rev": "prototype 1",
+    "name": "ACE prime head array",
+    "type": "T/R",
+    "nTX": 7,
+    "nRX": 23,
+    "quad": false,
+    "sens": 0.000001245,
+    "b0": 6.99,
+    "nucleus": [
+        "1H",
+        "13C"
+    ],
+    "f0": 300010000,
+    "diag": true
+}
