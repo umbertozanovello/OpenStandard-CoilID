@@ -19,17 +19,23 @@ The following packages must be installed in your Python environment (e.g., using
 **Note: DO NOT** install the bson package using `pip install bson`. It installs an incomplete and unmaintained library.
 
 ### Functions
-The following functions are provided in the `???.py` file:
+The following functions are provided in the `MRCoDS.py` file:
 - `EEPROM_find()`: scans the I<sup>2</sup>C bus and returns an `int` array of addresses at which a device is present.
 - `write_coil_data(coil_data, EEPROM_address = 0x50)`: writes the `coil_data` `dict` to the EEPROM at the I<sup>2</sup>C address provided.
-- `read_coil_data(EEPROM_address = 0x50)`: reads data stored in the EEPROM at the I<sup>2</sup>C address provided and checks it against the stored checksum.
+- `read_coil_data(EEPROM_address = 0x50)`: reads data stored in the EEPROM at the I<sup>2</sup>C address provided and checks it against the checksum stored in the EEPROM itself.
 - `is_json_serializable(data)`: checks if `data` (`type: dict`) is formatted according to what is expected from JSON.
 
 ### Test Script
-The `???_test.py` script performs the following operations:
+The `MRCoDS_test.py` script performs the following operations:
 - reads the `test_coil.json` file
 - adds current date and time to the `calDate` key
 - verifies that the *estimated* total data to be written <= EEPROM_size
 - if the EEPROM is present at the specified I<sup>2</sup>C address
   - writes the coil data to the EEPROM
   - reads back the coil data from the EEPROM (automatically verifying the checksum)
+
+### EEPROM Memory Screenshot
+A separate programmer app was used to read the EEPROM. This screenshot shows what the binary BSON data looks like for the test script above.
+
+![EEPROM memory dump](/figures/programmer_screenshot.png)
+
