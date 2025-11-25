@@ -32,11 +32,11 @@ def EEPROM_find():
 def write_coil_data(coil_data, EEPROM_address = 0x50):
     # check that coil_data is a dict
     if type(coil_data) != dict:
-        print('write_coil_data ERROR: coil_data must be a dict!')
+        print('write_coil_data ERROR: coil_data must be a dict!\n')
         return 0
         #quit()
     if is_json_serializable(coil_data) == False:
-        print('write_coil_data ERROR: coil_data must be JSON-like!')
+        print('write_coil_data ERROR: coil_data must be JSON-like!\n')
         return 0
         
     page_size = 64  # can only write one page at a time
@@ -70,7 +70,7 @@ def write_coil_data(coil_data, EEPROM_address = 0x50):
         time.sleep(time_delay)   # delay required for some reason
     print('writing done!')
     i2c.deinit()
-    return checksum  # TODO: return 0 if there is an error
+    return checksum  # returns 0 if there is an error
 
 
 def read_coil_data(EEPROM_address = 0x50):
@@ -121,8 +121,13 @@ def is_json_serializable(data):
         DESCRIPTION.
 
     """
+    
+    # doesn't like datetime fields --> have to ignore them
+    # https://stackoverflow.com/questions/31433989/return-copy-of-dictionary-excluding-specified-keys
+          
     try:
-        json.dumps(data)
+        json.dumps((lambda calDate, **kw: kw)(**data))  #with mfgDate doesn't work; probably can't handle removing if key is absent
         return True
     except TypeError:
         return False
+    
